@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Piyawat — Personal Website</title>
+
+  <meta
+    name="description"
+    content="Piyawat's personal website, projects, hobbies and notes."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #080a0f;
+      --card: #10131a;
+      --card-hover: #151923;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --border: #242832;
+      --purple: #9b7cff;
+      --blue: #5da9ff;
+      --pink: #ff6fb5;
+      --yellow: #ffc857;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 75% 15%,
+          rgba(117, 78, 255, 0.10),
+          transparent 28%
+        ),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      border-bottom: 1px solid var(--border);
+
+      background: rgba(8, 10, 15, 0.82);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      height: 64px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--purple);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #d4d4d8;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    .theme-button {
+      border: 0;
+      background: transparent;
+      color: #d4d4d8;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 570px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+
+      align-items: center;
+      padding: 70px 0 45px;
+    }
+
+    .eyebrow {
+      color: #c4c4cc;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 7vw, 92px);
+      line-height: 0.98;
+      letter-spacing: -5px;
+
+      background: linear-gradient(
+        120deg,
+        #ffffff,
+        #a98cff,
+        #6ea8ff
+      );
+
+      -webkit-background-clip: text;
+      color: transparent;
+
+      margin-bottom: 25px;
+    }
+
+    .hero-description {
+      max-width: 500px;
+
+      font-size: 20px;
+      color: var(--muted);
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .social {
+      width: 46px;
+      height: 46px;
+
+      border: 1px solid var(--border);
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 18px;
+
+      transition: 0.2s;
+    }
+
+    .social:hover {
+      border-color: var(--purple);
+      transform: translateY(-3px);
+    }
+
+    .hero-image {
+      height: 410px;
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(155, 124, 255, 0.12),
+          rgba(0, 0, 0, 0.2)
+        ),
+        linear-gradient(
+          135deg,
+          #242b3d,
+          #10131b 45%,
+          #342718
+        );
+
+      border: 1px solid var(--border);
+
+      position: relative;
+      overflow: hidden;
+
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-image::before {
+      content: "";
+
+      position: absolute;
+      width: 220px;
+      height: 220px;
+
+      border-radius: 50%;
+
+      background: #e18b5c;
+
+      filter: blur(35px);
+      opacity: 0.45;
+
+      right: 50px;
+      top: 70px;
+    }
+
+    .desk {
+      position: absolute;
+
+      left: 13%;
+      right: 13%;
+      bottom: 18%;
+
+      height: 115px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #513c2b,
+          #241b15
+        );
+
+      box-shadow:
+        0 25px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .monitor {
+      position: absolute;
+
+      width: 52%;
+      height: 36%;
+
+      right: 14%;
+      top: 20%;
+
+      background: #080a0f;
+
+      border: 8px solid #171a20;
+      border-radius: 8px;
+
+      box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .monitor::after {
+      content: "</>";
+
+      position: absolute;
+      inset: 0;
+
+      display: grid;
+      place-items: center;
+
+      color: #7d68ff;
+      font-size: 35px;
+      font-weight: 800;
+    }
+
+    .lamp {
+      position: absolute;
+
+      right: 7%;
+      bottom: 23%;
+
+      width: 65px;
+      height: 65px;
+
+      border-radius: 50%;
+
+      background: #ffc86b;
+
+      box-shadow:
+        0 0 70px rgba(255, 188, 93, 0.5);
+    }
+
+    /* =========================
+       CURRENTLY
+    ========================= */
+
+    .currently {
+      background: var(--card);
+      border: 1px solid var(--border);
+
+      border-radius: 16px;
+
+      padding: 22px;
+      margin-top: 35px;
+    }
+
+    .currently h3 {
+      margin-bottom: 16px;
+    }
+
+    .current-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .current-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .current-icon {
+      font-size: 27px;
+    }
+
+    .current-item strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .current-item span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 55px 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 750;
+
+      padding-left: 14px;
+
+      border-left: 3px solid var(--purple);
+    }
+
+    .section-link {
+      color: #9f8cff;
+      font-size: 14px;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+
+      border-radius: 17px;
+
+      padding: 16px;
+
+      transition: 0.25s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      background: var(--card-hover);
+      border-color: #353b48;
+    }
+
+    .project-image {
+      height: 160px;
+
+      border-radius: 12px;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 45px;
+
+      margin-bottom: 17px;
+    }
+
+    .project:nth-child(1) .project-image {
+      background:
+        linear-gradient(
+          135deg,
+          #dce4ff,
+          #7b91e8
+        );
+    }
+
+    .project:nth-child(2) .project-image {
+      background:
+        linear-gradient(
+          135deg,
+          #211b35,
+          #7155b8
+        );
+    }
+
+    .project:nth-child(3) .project-image {
+      background:
+        linear-gradient(
+          135deg,
+          #91b9dc,
+          #304c63
+        );
+    }
+
+    .project h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      padding: 4px 9px;
+
+      border-radius: 20px;
+
+      background: #1b1f28;
+
+      color: #bcbfc8;
+
+      font-size: 11px;
+    }
+
+    /* =========================
+       HOBBIES
+    ========================= */
+
+    .hobbies {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 25px;
+    }
+
+    .hobby {
+      text-align: center;
+    }
+
+    .hobby-icon {
+      width: 62px;
+      height: 62px;
+
+      margin: 0 auto 12px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #12151c;
+
+      border: 1px solid var(--border);
+
+      font-size: 26px;
+    }
+
+    .hobby h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .hobby p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================
+       QUOTE
+    ========================= */
+
+    .quote {
+      margin-top: 30px;
+
+      padding: 25px;
+
+      text-align: center;
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+
+      background: var(--card);
+
+      color: #c4c4cc;
+
+      font-style: italic;
+    }
+
+    .quote span {
+      font-size: 28px;
+      margin-right: 8px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+
+      padding: 35px 0;
+
+      color: #777b86;
+      font-size: 13px;
+
+      text-align: center;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        height: 350px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .hobbies {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      .hero h1 {
+        font-size: 58px;
+        letter-spacing: -3px;
+      }
+
+      .current-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hobbies {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-image {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <nav>
+    <div class="container nav-inner">
+
+      <a href="#" class="logo">
+        KP<span>.</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#notes">Notes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <button class="theme-button" onclick="toggleTheme()">
+        ☾
+      </button>
+
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section id="home">
+
+      <div class="container hero">
+
+        <div>
+
+          <div class="eyebrow">
+            👋 Hi, I'm
+          </div>
+
+          <h1>
+            Piyawat
+          </h1>
+
+          <p class="hero-description">
+            I build things for the web, explore ideas,
+            and enjoy learning new stuff.
+          </p>
+
+          <div class="socials">
+
+            <a class="social" href="#" aria-label="GitHub">
+              ◉
+            </a>
+
+            <a class="social" href="#" aria-label="Instagram">
+              ◎
+            </a>
+
+            <a class="social" href="#" aria-label="LinkedIn">
+              in
+            </a>
+
+            <a class="social" href="#" aria-label="Email">
+              ✉
+            </a>
+
+          </div>
+
+          <!-- CURRENTLY -->
+
+          <div class="currently">
+
+            <h3>
+              Currently <span style="color:#6dff8c;">●</span>
+            </h3>
+
+            <div class="current-grid">
+
+              <div class="current-item">
+                <div class="current-icon">⌘</div>
+                <div>
+                  <strong>Building</strong>
+                  <span>personal website</span>
+                </div>
+              </div>
+
+              <div class="current-item">
+                <div class="current-icon">📖</div>
+                <div>
+                  <strong>Learning</strong>
+                  <span>web development</span>
+                </div>
+              </div>
+
+              <div class="current-item">
+                <div class="current-icon">📷</div>
+                <div>
+                  <strong>Exploring</strong>
+                  <span>photography</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-image">
+
+          <div class="monitor"></div>
+          <div class="desk"></div>
+          <div class="lamp"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2 class="section-title">
+            Featured Projects
+          </h2>
+
+          <a href="#" class="section-link">
+            View all projects →
+          </a>
+
+        </div>
+
+
+        <div class="projects">
+
+
+          <article class="project">
+
+            <div class="project-image">
+              ✓
+            </div>
+
+            <h3>
+              TaskFlow
+            </h3>
+
+            <p>
+              A minimal task management app
+              with focus timer.
+            </p>
+
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-image">
+              ✦
+            </div>
+
+            <h3>
+              Pixel Journal
+            </h3>
+
+            <p>
+              A digital diary for capturing
+              moments with photos.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Web</span>
+              <span class="tag">Design</span>
+              <span class="tag">Journal</span>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-image">
+              ⛰
+            </div>
+
+            <h3>
+              Wanderlust
+            </h3>
+
+            <p>
+              A travel journal for sharing
+              stories and photos.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Travel</span>
+              <span class="tag">Photography</span>
+              <span class="tag">Blog</span>
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOBBIES
+    ========================== -->
+
+    <section id="hobbies">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2 class="section-title">
+            Interests & Hobbies
+          </h2>
+
+        </div>
+
+
+        <div class="hobbies">
+
+
+          <div class="hobby">
+            <div class="hobby-icon">📷</div>
+            <h3>Photography</h3>
+            <p>Capturing moments and emotions.</p>
+          </div>
+
+
+          <div class="hobby">
+            <div class="hobby-icon">☕</div>
+            <h3>Coffee</h3>
+            <p>Good coffee fuels good ideas.</p>
+          </div>
+
+
+          <div class="hobby">
+            <div class="hobby-icon">🎸</div>
+            <h3>Guitar</h3>
+            <p>Playing to relax and unwind.</p>
+          </div>
+
+
+          <div class="hobby">
+            <div class="hobby-icon">✦</div>
+            <h3>Design</h3>
+            <p>Creating simple and beautiful things.</p>
+          </div>
+
+
+          <div class="hobby">
+            <div class="hobby-icon">📖</div>
+            <h3>Reading</h3>
+            <p>Books open new perspectives.</p>
+          </div>
+
+
+          <div class="hobby">
+            <div class="hobby-icon">⌘</div>
+            <h3>Tech</h3>
+            <p>Always curious about new tech.</p>
+          </div>
+
+
+        </div>
+
+
+        <div class="quote">
+          <span>“</span>
+          Stay curious. Keep building.
+          <span>”</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         NOTES / ABOUT / CONTACT
+    ========================== -->
+
+    <section id="notes">
+      <div class="container">
+
+        <h2 class="section-title">
+          Notes
+        </h2>
+
+        <p style="color:#a1a1aa; margin-top:18px;">
+          Things I'm learning, thinking about,
+          and experiments I want to remember.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section id="about">
+      <div class="container">
+
+        <h2 class="section-title">
+          About
+        </h2>
+
+        <p style="color:#a1a1aa; margin-top:18px; max-width:650px;">
+          This is my little corner of the internet.
+          A place for my projects, interests,
+          experiments, and things I want to share.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <div class="container">
+
+        <h2 class="section-title">
+          Contact
+        </h2>
+
+        <p style="color:#a1a1aa; margin-top:18px;">
+          Want to get in touch?
+          Replace this text with your email or social links.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    © 2026 Piyawat. Built with curiosity.
+  </footer>
+
+
+  <script>
+
+    function toggleTheme() {
+
+      document.body.classList.toggle("light");
+
+    }
+
+  </script>
+
+</body>
+</html>
